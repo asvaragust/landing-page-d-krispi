@@ -1,1 +1,36 @@
+
+:root{
+    --primary : #61B2F9;
+    --primary-shade : #519de0;
+    --secondary : #F23A40;
+    --secondary-shade : #df3035;
+    --tertiary : #FFF93D;
+    --tertiary-shade : #e4de2f;
+
+    --text : #383838;
+    --text-dim : #F0F0F0;
+    --text-mute : #c0c0c0;
+
+    --bg-app-one : #d3d3d3;
+    --bg-app-two : #d3d3d3;
+    --bg-surface : #f0f0f0;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Poppins', Arial;
+    scroll-behavior: smooth;
+}
+
+.navlinks li{
+    border-color: var(--tertiary-shade);
+    transition: 0.3s;
+}
+
+.navlinks li:hover{
+    border-bottom: 2px solid var(--tertiary-shade);
+    color: var(--text-dim);
+    text-shadow: 0px 0px 24px yellow;
+}
+
 @import "tailwindcss";
