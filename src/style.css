@@ -1,3 +1,25 @@
+@import "tailwindcss";
+
+@theme {
+    --color-app-one : #d3d3d3;
+    --color-app-two : #c7c6c6;
+    --color-surface : #f0f0f0;
+
+    --color-primary : #61B2F9;
+    --color-primary-shade : #519de0;
+    --color-secondary : #F23A40;
+    --color-secondary-shade : #df3035;
+    --color-tertiary : #FFF93D;
+    --color-tertiary-shade : #e4de2f;
+
+    --color-text : #383838;
+    --color-text-dim : #F0F0F0;
+    --color-text-mute : #c0c0c0;
+
+    --color-bg-app-one : #d3d3d3;
+    --color-bg-app-two : #c7c6c6;
+    --color-bg-surface : #f0f0f0;
+}
 
 :root{
     --primary : #61B2F9;
@@ -12,7 +34,7 @@
     --text-mute : #c0c0c0;
 
     --bg-app-one : #d3d3d3;
-    --bg-app-two : #d3d3d3;
+    --bg-app-two : #c7c6c6;
     --bg-surface : #f0f0f0;
 }
 
@@ -20,6 +42,8 @@
     box-sizing: border-box;
     font-family: 'Poppins', Arial;
     scroll-behavior: smooth;
+    @apply
+    selection:bg-secondary/80
 }
 
 .navlinks li{
@@ -33,4 +57,99 @@
     text-shadow: 0px 0px 24px yellow;
 }
 
-@import "tailwindcss";
+@layer base{
+    section{
+        @apply
+        w-screen
+    }
+}
+
+@layer components{
+    .cta-hubungi-penjual{
+        @apply bg-linear-to-r from-[var(--secondary)] to-[var(--secondary-shade)]
+        font-[500] text-[var(--text-dim)]
+        p-4
+        rounded
+        shadow-[0_4px_16px_var(--secondary)]
+        outline-[var(--secondary)]
+
+        hover:-translate-y-2
+
+        focus:outline-2
+        focus:outline-[var(--secondary)]
+        focus:outline-offset-4
+
+        transition-all duration-300
+    }
+
+    .cta-lihat-produk{
+        @apply outline-2
+        outline-[var(--tertiary)]
+        rounded
+        p-6
+        text-[var(--text-dim)]
+        hover:bg-[var(--tertiary-shade)]/50
+        hover:shadow-[0px_8px_24px_var(--tertiary)]
+        hover:-translate-y-2
+        focus:outline-offset-4
+        transition-all
+        duration-300
+          
+    }
+
+    .produk-img{
+        
+
+        @apply
+        shadow-[0_4px_32px_black]
+        rounded-xl
+        border-tertiary
+
+        hover:z-2
+        hover:scale-110
+        hover:shadow-secondary
+        hover:border-tertiary
+        hover:border-1
+
+        transition-all
+        duration-300
+
+        
+    }
+
+    
+
+    .produk-img-non-main{
+        @apply opacity-50
+        hover:opacity-100
+    }
+
+    .page-title{
+        text-shadow: 5px 5px 0 color-mix(in srgb, yellow 30%, transparent), -5px -5px 0 color-mix(in srgb, red 20%, transparent);
+    }
+}
+
+@layer utilities{
+    .box-shadow{
+        @apply
+        shadow-[0_8px_24px_black]
+        shadow-black/50
+    }
+
+    .hover-shadow{
+        @apply
+        shadow-[0_4px_32px_black]
+        border-tertiary
+
+        hover:z-2
+        hover:scale-102
+        hover:shadow-secondary
+        hover:border-tertiary
+        hover:border-1
+
+        transition-all
+        duration-300
+    }
+}
+
+

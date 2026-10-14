@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   </head>
-  <body>
+  <body class="flex flex-col items-center">
 
     <!-- ========== -->
     <!-- NAVBAR -->
@@ -24,6 +24,7 @@
     text-[var(--text)]">
 
       <!-- = LOGO = -->
+      <img src="https://img.icons8.com/?size=100&id=UCC8VuXculLE&format=png&color=000000" alt="Logo" width="50px">
       <h1 class="text-2xl font-bold border-b-2 border-[var(--tertiary-shade)] p-2 cursor-pointer">Rak Hotwheels, N. G.</h1>
 
       <!-- = NAVLINKS = -->
@@ -37,21 +38,7 @@
       </nav>
 
       <!-- = CTA = -->
-      <button class="
-      bg-linear-to-r from-[var(--secondary)] to-[var(--secondary-shade)]
-      font-[500] text-[var(--text-dim)]
-      p-4
-      rounded
-      shadow-[0_4px_16px_var(--secondary)]
-      outline-[var(--secondary)]
-      
-      hover:-translate-y-2
-
-      focus:outline-2
-      focus:outline-[var(--secondary)]
-      focus: outline-offset-4
-      
-      transition-all duration-300">
+      <button class="cta-hubungi-penjual">
         HUBUNGI PENJUAL
       </button>
     </section>
@@ -61,7 +48,7 @@
     <!-- HOME -->
     <!-- ========== -->
     <section id="home" class="
-    h-[90vh] bg-[linear-gradient(to_bottom,rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url('/assets/hero-bg.jpeg')] bg-cover bg-center bg-no-repeat
+    h-[100vh] bg-[linear-gradient(to_bottom,rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url('/assets/hero-bg.jpeg')] bg-cover bg-center bg-no-repeat
     grid grid-cols-2 p-16 gap-8">
 
       <!-- = MAIN CONTENT = -->
@@ -73,43 +60,142 @@
 
         <!-- = CTA = -->
         <div class="flex gap-12">
-          <button class="
-          bg-linear-to-r from-[var(--secondary)] to-[var(--secondary-shade)]
-          font-[500] text-[var(--text-dim)]
-          p-4
-          rounded
-          shadow-[0_4px_16px_var(--secondary)]
-          outline-[var(--secondary)]
-          
-          hover:-translate-y-2
-
-          focus:outline-2
-          focus:outline-[var(--secondary)]
-          focus: outline-offset-4
-          
-          transition-all duration-300">
+          <button class="cta-hubungi-penjual">
             HUBUNGI PENJUAL
           </button>
-          <button class="
-          outline-2
-          outline-[var(--tertiary)]
-          rounded
-          p-6
-          text-[var(--text-dim)]
-
-          hover:bg-[var(--tertiary-shade)]/50
-          hover:shadow-[0px_8px_24px_var(--tertiary)]
-          hover:-translate-y-2
-
-          focus:outline-offset-4
-
-          transition-all
-          duration-300
-          ">
+          <button class="cta-lihat-produk">
             LIHAT PRODUK
           </button>
         </div>
       </div>
+    </section>
+
+    <!-- ========== -->
+    <!-- PRODUK -->
+    <!-- ========== -->
+    <section id="produk" class="min-h-screen bg-primary-shade/50 bg-app-one">
+      <!-- = TITLE  -->
+      <h2 class="text-center py-6 text-4xl font-bold page-title">Produk</h2>
+
+      <!-- = RAK  -->
+      <div class="relative min-h-[60vh]">
+        <img src="assets/rak1.jpeg" alt="rak 1" width="300px" class="absolute left-[30%] top-[60%] -translate-[50%] produk-img produk-img-non-main">
+        <img src="assets/rak2.jpeg" alt="rak 2" width="300px" class="absolute left-[50%] top-[50%] -translate-[50%] z-1 produk-img">
+        <img src="assets/rak3.jpeg" alt="rak 3" width="300px" class="absolute left-[70%] top-[60%] -translate-[50%] produk-img produk-img-non-main">
+      </div>
+
+      <!-- =  DETAILS  -->
+      <div id="size-n-quality" class="flex justify-center flex-col items-center gap-4 font-[600] text-2xl py-6">
+        <p>2 x 5</p>
+        <p>PLYWOOD</p>
+      </div>
+    </section>
+
+    <!-- ========== -->
+    <!-- PENAWARAN -->
+    <!-- ========== -->
+    <section id="penawaran" class="min-h-screen bg-app-two flex items-center flex-col bg-primary-shade/30">
+      <!-- = TITLE  -->
+      <h2 class="text-center py-6 text-4xl font-bold page-title">Penawaran</h2>
+
+      <!-- = CARD  -->
+      <div class="bg-surface w-[80vw] rounded-4xl overflow-hidden my-8 grid grid-cols-2 box-shadow">
+        <div class="w-[40vw] overflow-hidden ">
+          <img class="h-auto w-full object-fit object-cover hover:scale-110 transition-all duration-300" src="assets/rak4.jpeg" alt="rak 4">
+        </div>
+
+        <div class="p-4 flex flex-col relative">
+          <h2 class="text-4xl font-bold mt-4 mx-4 mb-2">Paket Standar</h2>
+          <h3 class="mx-4 mb-4 font-[500]">10.000/Sel, Cth. Rak 2x5, 10 Sel, 100 Ribu</h3>
+          <p class="m-4 text-text">Pada penawaran ini, Bahan rak yang digunakan adalah plywood. Terlintas dari harganya yang murah, plywood juga memiliki kualitas yang baik. Dan harga ini sangat cocok untuk kalian yang ingin mempunya rak untuk memajang hotwheels kalian. <em>(Pesanan tidak harus 2x5, bisa sesusai dengan keinginan kalian)</em></p>
+          <button class="cta-hubungi-penjual self-start absolute bottom-0 left-0 mx-10 my-20">HUBUNGI PENJUAL</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== -->
+    <!-- LANGKAH PEMESANAN -->
+    <!-- ========== -->
+    <section class=" bg-app-one flex flex-col items-center p-12 bg-primary-shade/50">
+      <!-- = TITLE  -->
+      <h2 class="text-4xl font-bold py-4 page-title">Langkah Pemesanan</h2>
+
+      <!-- = CARD  -->
+      <div class="bg-surface p-8 rounded-2xl box-shadow hover-shadow">
+        <p>
+          1. Pilih kontak pengrajin (disarankan wa atau ig). <br>
+          2. DM / Japri langsung kepada pengrajin. <br>
+          3. Sebutkan pesanan ke pengrajin sesuai dengan ketentuan di penawaran <br>
+          4. Jika pesanan kustom, maka akan ada biaya DP untuk modl pembuatan rak <br>
+          5. Tunggu hingga rak selesai di proses. <br>
+          6. Penerimaan rak bisa di diskusikan dengan pengrajin (mau dikirim, atau ambil di tempat) <br>
+        </p>
+      </div>
+    </section>
+
+    <!-- ========== -->
+    <!-- KONTAK -->
+    <!-- ========== -->
+    <section id="kontak" class=" min-h-screen bg-app-two flex flex-col items-center bg-primary-shade/30">
+      <!-- = TITLE  -->
+      <h2 class="text-4xl font-bold py-8 page-title">Kontak</h2>
+
+      <!-- = CARDS  -->
+      <div class="flex gap-16 h-[70vh] items-center justify-center">
+        <div class="bg-surface flex flex-col items-center justify-center min-w-[280px] min-h-[280px] rounded-2xl box-shadow hover-shadow">
+          <div class="w-[200px] overflow-hidden m-4">
+            <img class="h-auto w-full" src="assets/whatsapp.png" alt="whatsapp">
+          </div>
+
+          <p class="text-2xl my-4">0838-9421-2194</p>
+        </div>
+
+        <div class="bg-surface flex flex-col items-center justify-center min-w-[280px] min-h-[280px] rounded-2xl box-shadow hover-shadow">
+          <div class="w-[200px] overflow-hidden m-4">
+            <img class="h-auto w-full" src="assets/instagram.png" alt="whatsapp">
+          </div>
+
+          <p class="text-2xl my-4">nandra.garage</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== -->
+    <!-- FOOTER -->
+    <!-- ========== -->
+    <section id="footer" class="h-screen bg-primary grid grid-cols-2 grid-rows-[100px_1fr_30px] p-8 gap-4">
+      <!-- = TITLE  -->
+      <h2 class="text-6xl font-bold col-start-1 col-end-3 page-title">Rak Hotwheels, N. G.</h2>
+
+      <!-- = HALAMAN  -->
+      <div>
+        <h2 class="text-4xl font-[500]">Halaman</h2>
+        <ol class="px-4 py-4 text-xl navlinks inline-block">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#produk">Produk</a></li>
+          <li><a href="#penawaran">Penawaran</a></li>
+          <li><a href="kontak">Kontak</a></li>
+        </ol>
+      </div>
+
+      <!-- = KONTAK  -->
+      <div>
+        <h2 class="text-4xl font-[500]">Kontak</h2>
+        <div class="flex flex-col gap-4 p-8">
+          <button class="flex gap-4 bg-secondary py-2 px-6 rounded-4xl text-text-dim self-start hover-shadow">
+            <img src="assets/whatsapp.png" alt="whatsapp" class="w-[25px]">
+            <p>0838-9421-2194</p>
+          </button>
+
+          <button class="flex gap-4 bg-secondary py-2 px-6 rounded-4xl text-text-dim self-start hover-shadow">
+            <img src="assets/instagram.png" alt="instagram" class="w-[25px]">
+            <p>nandra.garage</p>
+          </button>
+        </div>
+      </div>
+
+      <!-- = HAK CIPTA  -->
+      <h2 class="text-center font-bold text-2xl col-start-1 col-end-3">© 2026 Hak Cipta : Nandra’s Garage</h2>
     </section>
 
     <script type="module" src="/src/main.js"></script>
