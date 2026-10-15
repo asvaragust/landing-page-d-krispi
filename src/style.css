@@ -19,6 +19,8 @@
     --color-bg-app-one : #d3d3d3;
     --color-bg-app-two : #c7c6c6;
     --color-bg-surface : #f0f0f0;
+
+    --breakpoint-xs : 30rem;
 }
 
 :root{
@@ -66,14 +68,19 @@
 
 @layer components{
     .cta-hubungi-penjual{
-        @apply bg-linear-to-r from-[var(--secondary)] to-[var(--secondary-shade)]
-        font-[500] text-[var(--text-dim)]
-        p-4
+        @apply 
+        
+        text-xs
+        sm:text-sm
+        bg-linear-to-r from-[var(--secondary)] to-[var(--secondary-shade)]
+        sm:font-[500] text-[var(--text-dim)]
+        p-2
+        md:p-4
         rounded
         shadow-[0_4px_16px_var(--secondary)]
         outline-[var(--secondary)]
 
-        hover:-translate-y-2
+        hover:-translate-y-1
 
         focus:outline-2
         focus:outline-[var(--secondary)]
@@ -105,11 +112,11 @@
         rounded-xl
         border-tertiary
 
-        hover:z-2
-        hover:scale-110
-        hover:shadow-secondary
-        hover:border-tertiary
-        hover:border-1
+        sm:hover:z-2
+        sm:hover:scale-110
+        sm:hover:shadow-secondary
+        sm:hover:border-tertiary
+        sm:hover:border-1
 
         transition-all
         duration-300
@@ -121,7 +128,7 @@
 
     .produk-img-non-main{
         @apply opacity-50
-        hover:opacity-100
+        sm:hover:opacity-100
     }
 
     .page-title{

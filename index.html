@@ -17,19 +17,20 @@
     <!-- NAVBAR -->
     <!-- ========== -->
     <section id="navbar" class="
-    min-h-[10vh] max-h-[15vh] 
+    min-h-[5vh] lg:min-h-[10vh] max-h-[10vh] lg:max-h-[15vh] 
     flex justify-between items-center 
     p-4 
     bg-linear-to-r from-[var(--primary)] to-[var(--primary-shade)]
-    text-[var(--text)]">
+    text-[var(--text)]
+    flex gap-2">
 
       <!-- = LOGO = -->
-      <img src="assets/logo.png" alt="Logo" width="50px" class="rounded">
-      <h1 class="text-2xl font-bold border-b-2 border-[var(--tertiary-shade)] p-2 cursor-pointer">Rak Hotwheels, N. G.</h1>
+      <img src="assets/logo.png" alt="Logo" class="rounded w-[10vw] min-w-[20px] max-w-[50px]">
+      <h1 class="text-xs lg:text-2xl font-bold border-b-2 border-[var(--tertiary-shade)] p-2 cursor-pointer">Rak Hotwheels, N. G.</h1>
 
       <!-- = NAVLINKS = -->
-      <nav class="w-[60%]">
-        <ul class="navlinks w-full flex justify-center items-center gap-16">
+      <nav class="hidden sm:block sm:text-sm lg:text-lg lg:w-[60%]">
+        <ul class="navlinks w-full flex justify-center items-center gap-4 md:gap-8 lg:gap-16">
           <li><a href="#home">Home</a></li>
           <li><a href="#produk">Produk</a></li>
           <li><a href="#penawaran">Penawaran</a></li>
@@ -49,17 +50,18 @@
     <!-- ========== -->
     <section id="home" class="
     h-[100vh] bg-[linear-gradient(to_bottom,rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url('/assets/hero-bg.jpeg')] bg-cover bg-center bg-no-repeat
-    grid grid-cols-2 p-16 gap-8">
+    grid grid-cols-1 sm:grid-cols-2 py-8 p-4 lg:p-16 gap-4 md:gap-8 overflow-hidden">
 
       <!-- = MAIN CONTENT = -->
-      <div class="w-full h-full py-6">
-        <h2 class="text-4xl text-[var(--text-dim)] leading-16">Pajang Hotwheels kalian dengan rak kami.</h2>
+      <div class="w-full h-full lg:py-6">
+        <h2 class="
+        text-3xl w-full sm:leading-12 lg:text-4xl text-[var(--text-dim)] lg:leading-16">Pajang Hotwheels kalian dengan rak kami.</h2>
 
-        <p class="text-[var(--text-mute)] py-6 my-4">Rak Hotwheels N’s Garage menyediakan Rak Hotwheels yang berkualitas, buatan dari seorang pengrajin yang sudah berpengalaman. Kami menyediakan harga dengan menyesuaikan kebutuhan anda!</p>
+        <p class="text-sm sm:text-base text-[var(--text-mute)] py-6 my-4">Rak Hotwheels N’s Garage menyediakan Rak Hotwheels yang berkualitas, buatan dari seorang pengrajin yang sudah berpengalaman. Kami menyediakan harga dengan menyesuaikan kebutuhan anda!</p>
 
 
         <!-- = CTA = -->
-        <div class="flex gap-12">
+        <div class="flex gap-12 py-16">
           <button class="cta-hubungi-penjual">
             HUBUNGI PENJUAL
           </button>
@@ -73,16 +75,43 @@
     <!-- ========== -->
     <!-- PRODUK -->
     <!-- ========== -->
-    <section id="produk" class="min-h-screen bg-primary-shade/50 bg-app-one">
+    <section id="produk" class="min-h-screen bg-primary-shade/50 bg-app-one overflow-hidden">
       <!-- = TITLE  -->
       <h2 class="text-center py-6 text-4xl font-bold page-title">Produk</h2>
 
-      <!-- = RAK  -->
-      <div class="relative min-h-[60vh]">
-        <img src="assets/rak1.jpeg" alt="rak 1" width="300px" class="absolute left-[30%] top-[60%] -translate-[50%] produk-img produk-img-non-main">
-        <img src="assets/rak2.jpeg" alt="rak 2" width="300px" class="absolute left-[50%] top-[50%] -translate-[50%] z-1 produk-img">
-        <img src="assets/rak3.jpeg" alt="rak 3" width="300px" class="absolute left-[70%] top-[60%] -translate-[50%] produk-img produk-img-non-main">
+      <!-- = RAK CONTAINER -->
+      <div class="relative w-full max-w-4xl mx-auto group">
+        
+        <!-- Gallery Viewport -->
+        <div id="produk-gallery" class="relative min-h-[60vh] overflow-hidden select-none w-full">
+          <!-- Item 1 (Left secara default) -->
+          <div class="produk-item w-[300px] absolute transition-all duration-500 ease-in-out cursor-pointer produk-img produk-img-non-main rounded-2xl overflow-hidden">
+            <img src="assets/rak1.jpeg" alt="rak 1" class="w-full pointer-events-none drop-shadow-md">
+          </div>
+          
+          <!-- Item 2 (Center secara default) -->
+          <div class="produk-item w-[300px] absolute transition-all duration-500 ease-in-out cursor-pointer produk-img rounded-2xl overflow-hidden">
+            <img src="assets/rak2.jpeg" alt="rak 2" class="w-full pointer-events-none drop-shadow-md">
+          </div>
+          
+          <!-- Item 3 (Right secara default) -->
+          <div class="produk-item w-[300px] absolute transition-all duration-500 ease-in-out cursor-pointer produk-img produk-img-non-main rounded-2xl overflow-hidden">
+            <img src="assets/rak3.jpeg" alt="rak 3" class="w-full pointer-events-none drop-shadow-md">
+          </div>
+
+          <!-- Anda bisa tambah <div class="produk-item"> baru di sini, otomatis masuk antrean infinity loop -->
+        </div>
+
+        <!-- Navigation Arrows -->
+        <button id="btn-prev" class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 p-3 rounded-full shadow-lg z-20 transition-all duration-200">
+          &#10094; <!-- Panah Kiri -->
+        </button>
+        <button id="btn-next" class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 p-3 rounded-full shadow-lg z-20 transition-all duration-200">
+          &#10095; <!-- Panah Kanan -->
+        </button>
       </div>
+
+
 
       <!-- =  DETAILS  -->
       <div id="size-n-quality" class="flex justify-center flex-col items-center gap-4 font-[600] text-2xl py-6">
@@ -94,21 +123,21 @@
     <!-- ========== -->
     <!-- PENAWARAN -->
     <!-- ========== -->
-    <section id="penawaran" class="min-h-screen bg-app-two flex items-center flex-col bg-primary-shade/30">
+    <section id="penawaran" class="min-h-screen bg-app-two flex items-center flex-col bg-primary-shade/30 overflow-hidden">
       <!-- = TITLE  -->
       <h2 class="text-center py-6 text-4xl font-bold page-title">Penawaran</h2>
 
       <!-- = CARD  -->
-      <div class="bg-surface w-[80vw] rounded-4xl overflow-hidden my-8 grid grid-cols-2 box-shadow">
-        <div class="w-[40vw] overflow-hidden ">
-          <img class="h-auto w-full object-fit object-cover hover:scale-110 transition-all duration-300" src="assets/rak4.jpeg" alt="rak 4">
+      <div class="bg-surface w-[80vw] rounded-4xl overflow-hidden my-8 place-items-center grid grid-cols-1 sm:grid-cols-2 box-shadow">
+        <div class="w-full sm:w-[40vw] overflow-hidden">
+          <img class="h-auto w-full object-center object-fit object-cover hover:scale-110 transition-all duration-300" src="assets/rak4.jpeg" alt="rak 4">
         </div>
 
         <div class="p-4 flex flex-col relative">
           <h2 class="text-4xl font-bold mt-4 mx-4 mb-2">Paket Standar</h2>
-          <h3 class="mx-4 mb-4 font-[500]">10.000/Sel, Cth. Rak 2x5, 10 Sel, 100 Ribu</h3>
-          <p class="m-4 text-text">Pada penawaran ini, Bahan rak yang digunakan adalah plywood. Terlintas dari harganya yang murah, plywood juga memiliki kualitas yang baik. Dan harga ini sangat cocok untuk kalian yang ingin mempunya rak untuk memajang hotwheels kalian. <em>(Pesanan tidak harus 2x5, bisa sesusai dengan keinginan kalian)</em></p>
-          <button class="cta-hubungi-penjual self-start absolute bottom-0 left-0 mx-10 my-20">HUBUNGI PENJUAL</button>
+          <h3 class="mx-4 mb-2 sm:mb-4 font-[500]">10.000/Sel, Cth. Rak 2x5, 10 Sel, 100 Ribu</h3>
+          <p class="m-4 text-text text-xs">Pada penawaran ini, Bahan rak yang digunakan adalah plywood. Terlintas dari harganya yang murah, plywood juga memiliki kualitas yang baik. Dan harga ini sangat cocok untuk kalian yang ingin mempunya rak untuk memajang hotwheels kalian. <em>(Pesanan tidak harus 2x5, bisa sesusai dengan keinginan kalian)</em></p>
+          <button class="cta-hubungi-penjual self-start bottom-0 mx-4 mb-5 left-0 lg:mt-[100px] lg:mx-10 lg:mb-20">HUBUNGI PENJUAL</button>
         </div>
       </div>
     </section>
@@ -116,19 +145,19 @@
     <!-- ========== -->
     <!-- LANGKAH PEMESANAN -->
     <!-- ========== -->
-    <section class=" bg-app-one flex flex-col items-center p-12 bg-primary-shade/50">
+    <section class=" bg-app-one flex flex-col items-center p-12 bg-primary-shade/50 overflow-hidden">
       <!-- = TITLE  -->
       <h2 class="text-4xl font-bold py-4 page-title">Langkah Pemesanan</h2>
 
       <!-- = CARD  -->
       <div class="bg-surface p-8 rounded-2xl box-shadow hover-shadow">
-        <p>
-          1. Pilih kontak pengrajin (disarankan wa atau ig). <br>
-          2. DM / Japri langsung kepada pengrajin. <br>
-          3. Sebutkan pesanan ke pengrajin sesuai dengan ketentuan di penawaran <br>
-          4. Jika pesanan kustom, maka akan ada biaya DP untuk modl pembuatan rak <br>
-          5. Tunggu hingga rak selesai di proses. <br>
-          6. Penerimaan rak bisa di diskusikan dengan pengrajin (mau dikirim, atau ambil di tempat) <br>
+        <p class="text-sm sm:text-base">
+          1. Pilih kontak pengrajin (disarankan wa atau ig). <br><br>
+          2. DM / Japri langsung kepada pengrajin. <br><br>
+          3. Sebutkan pesanan ke pengrajin sesuai dengan ketentuan di penawaran <br><br>
+          4. Jika pesanan kustom, maka akan ada biaya DP untuk modl pembuatan rak <br><br>
+          5. Tunggu hingga rak selesai di proses. <br><br>
+          6. Penerimaan rak bisa di diskusikan dengan pengrajin (mau dikirim, atau ambil di tempat) <br><br>
         </p>
       </div>
     </section>
@@ -141,7 +170,7 @@
       <h2 class="text-4xl font-bold py-8 page-title">Kontak</h2>
 
       <!-- = CARDS  -->
-      <div class="flex gap-16 h-[70vh] items-center justify-center">
+      <div class="flex gap-16 min-h-[70vh] items-center justify-center flex-col md:flex-row mb-16">
         <div class="bg-surface flex flex-col items-center justify-center min-w-[280px] min-h-[280px] rounded-2xl box-shadow hover-shadow">
           <div class="w-[200px] overflow-hidden m-4">
             <img class="h-auto w-full" src="assets/whatsapp.png" alt="whatsapp">
@@ -163,13 +192,13 @@
     <!-- ========== -->
     <!-- FOOTER -->
     <!-- ========== -->
-    <section id="footer" class="h-screen bg-primary grid grid-cols-2 grid-rows-[100px_1fr_30px] p-8 gap-4">
+    <section id="footer" class="min-h-screen bg-primary grid grid-cols-2 grid-rows-[100px_1fr_30px] p-8 gap-4 overflow-hidden">
       <!-- = TITLE  -->
-      <h2 class="text-6xl font-bold col-start-1 col-end-3 page-title">Rak Hotwheels, N. G.</h2>
+      <h2 class="text-2xl xs:text-3xl sm:text-5xl  md:text-6xl font-bold col-start-1 col-end-3 page-title">Rak Hotwheels, N. G.</h2>
 
       <!-- = HALAMAN  -->
       <div>
-        <h2 class="text-4xl font-[500]">Halaman</h2>
+        <h2 class="text-xl sm:text-2xl md:text-4xl font-[500]">Halaman</h2>
         <ol class="px-4 py-4 text-xl navlinks inline-block">
           <li><a href="#home">Home</a></li>
           <li><a href="#produk">Produk</a></li>
@@ -179,23 +208,23 @@
       </div>
 
       <!-- = KONTAK  -->
-      <div>
-        <h2 class="text-4xl font-[500]">Kontak</h2>
-        <div class="flex flex-col gap-4 p-8">
+      <div class="">
+        <h2 class="text-xl sm:text-2xl md:text-4xl font-[500]">Kontak</h2>
+        <div class="flex flex-col xs:flex-row sm:flex-col gap-4 p-8">
           <button class="flex gap-4 bg-secondary py-2 px-6 rounded-4xl text-text-dim self-start hover-shadow">
-            <img src="assets/whatsapp.png" alt="whatsapp" class="w-[25px]">
-            <p>0838-9421-2194</p>
+            <img src="assets/whatsapp.png" alt="whatsapp" class="min-w-[25px] max-w-[30px]">
+            <p class="hidden sm:block">0838-9421-2194</p>
           </button>
 
           <button class="flex gap-4 bg-secondary py-2 px-6 rounded-4xl text-text-dim self-start hover-shadow">
-            <img src="assets/instagram.png" alt="instagram" class="w-[25px]">
-            <p>nandra.garage</p>
+            <img src="assets/instagram.png" alt="instagram" class="min-w-[25px] max-w-[30px]">
+            <p class="hidden sm:block">nandra.garage</p>
           </button>
         </div>
       </div>
 
       <!-- = HAK CIPTA  -->
-      <h2 class="text-center font-bold text-2xl col-start-1 col-end-3">© 2026 Hak Cipta : Nandra’s Garage</h2>
+      <h2 class="text-center font-bold md:text-2xl col-start-1 col-end-3">© 2026 Hak Cipta : Nandra’s Garage</h2>
     </section>
 
     <script type="module" src="/src/main.js"></script>
