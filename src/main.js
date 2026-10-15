@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     hiddenLeft: { left: "10%", top: "65%", scale: "scale-50", opacity: "opacity-0", zIndex: "z-0" },
     left:       { left: "20%", top: "60%", scale: "scale-75", opacity: "opacity-60", zIndex: "z-10" },
     center:     { left: "50%", top: "50%", scale: "scale-100", opacity: "opacity-100", zIndex: "z-30" },
-    right:      { left: "70%", top: "60%", scale: "scale-75", opacity: "opacity-60", zIndex: "z-10" },
+    right:      { left: "80%", top: "60%", scale: "scale-75", opacity: "opacity-60", zIndex: "z-10" },
     hiddenRight:{ left: "90%", top: "65%", scale: "scale-50", opacity: "opacity-0", zIndex: "z-0" }
   };
 
