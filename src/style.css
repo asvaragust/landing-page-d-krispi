@@ -69,7 +69,7 @@
 @layer components{
     .cta-hubungi-penjual{
         @apply 
-        
+        text-center
         text-xs
         sm:text-sm
         bg-linear-to-r from-[var(--secondary)] to-[var(--secondary-shade)]
