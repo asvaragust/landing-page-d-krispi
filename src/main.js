@@ -1,95 +1,117 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Ambil semua elemen produk secara dinamis
-  const items = Array.from(document.querySelectorAll(".produk-item"));
+  const gallery = document.getElementById("produk-gallery");
   const btnPrev = document.getElementById("btn-prev");
   const btnNext = document.getElementById("btn-next");
-  
-  // Konfigurasi style untuk tiap posisi visual
-  const states = {
-    hiddenLeft: { left: "10%", top: "65%", scale: "scale-50", opacity: "opacity-0", zIndex: "z-0" },
-    left:       { left: "20%", top: "60%", scale: "scale-75", opacity: "opacity-60", zIndex: "z-10" },
-    center:     { left: "50%", top: "50%", scale: "scale-100", opacity: "opacity-100", zIndex: "z-30" },
-    right:      { left: "80%", top: "60%", scale: "scale-75", opacity: "opacity-60", zIndex: "z-10" },
-    hiddenRight:{ left: "90%", top: "65%", scale: "scale-50", opacity: "opacity-0", zIndex: "z-0" }
-  };
+  if (!gallery) return;
 
-  // Set durasi interval auto-rotate (dalam milidetik)
-  let autoRotateInterval = 3500;
-  let autoRotate = setInterval(rotateRight, autoRotateInterval);
+  // Urutan array = urutan tampil. items[0] selalu di tengah.
+  const items = Array.from(gallery.querySelectorAll(".produk-item"));
+  if (items.length === 0) return;
 
-  // Fungsi mematikan auto-rotate secara permanen saat interaksi manual terjadi
-  function killAutoRotate() {
-    if (autoRotate) {
-      clearInterval(autoRotate);
-      autoRotate = null; // Menandakan auto-rotate sudah mati total
-    }
+  // ---------- Posisi ----------
+  // Posisi visual diatur lewat atribut data-pos, style-nya ada di style.css
+  function getPosition(index, total) {
+    if (index === 0) return "center";
+    if (index === 1) return "right";
+    if (index === total - 1) return "left";
+    if (index === 2) return "hidden-right";
+    return "hidden-left";
   }
 
   function updateGallery() {
     items.forEach((item, index) => {
-      let state;
-      
-      // Menentukan posisi berdasarkan indeks array saat ini (Infinity Loop Logic)
-      if (index === 0) state = states.center;       // Elemen pertama selalu di tengah
-      else if (index === 1) state = states.right;    // Elemen kedua di kanan
-      else if (index === items.length - 1) state = states.left; // Elemen terakhir di kiri
-      else if (index === 2) state = states.hiddenRight; // Sisa elemen disembunyikan di kanan
-      else state = states.hiddenLeft;               // Sisa elemen lainnya disembunyikan di kiri
-
-      // Terapkan posisi koordinat & centering menggunakan translate standar
-      item.style.left = state.left;
-      item.style.top = state.top;
-      item.style.transform = "translate(-50%, -50%)";
-
-      // Bersihkan class Tailwind bawaan sebelumnya
-      item.className = item.className.replace(/scale-\d+|opacity-\d+|z-\d+/g, '').trim();
-      
-      // Suntik class visual baru sesuai posisinya
-      item.classList.add(state.scale, state.opacity, state.zIndex);
+      item.dataset.pos = getPosition(index, items.length);
     });
   }
 
   function rotateLeft() {
-    // Geser item: ambil item terakhir, taruh di paling depan (putar ke kiri)
-    const lastItem = items.pop();
-    items.unshift(lastItem);
+    items.unshift(items.pop()); // item terakhir jadi paling depan
     updateGallery();
   }
 
   function rotateRight() {
-    // Geser item: ambil item pertama, taruh di paling belakang (putar ke kanan)
-    const firstItem = items.shift();
-    items.push(firstItem);
+    items.push(items.shift()); // item pertama pindah ke belakang
     updateGallery();
   }
 
-  // --- EVENT LISTENERS ---
+  // ---------- Auto-rotate ----------
+  const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
 
-  // Tombol Navigasi Klik (Mematikan Auto Rotate)
-  btnPrev.addEventListener("click", () => {
+  let autoRotate = null;
+  if (items.length > 1 && !prefersReducedMotion) {
+    autoRotate = setInterval(rotateRight, 3500);
+  }
+
+  // Dimatikan permanen begitu pengunjung berinteraksi
+  function killAutoRotate() {
+    if (autoRotate) {
+      clearInterval(autoRotate);
+      autoRotate = null;
+    }
+  }
+
+  // ---------- Tombol ----------
+  btnPrev?.addEventListener("click", () => {
     killAutoRotate();
     rotateLeft();
   });
 
-  btnNext.addEventListener("click", () => {
+  btnNext?.addEventListener("click", () => {
     killAutoRotate();
     rotateRight();
   });
 
-  // Klik langsung pada item samping untuk memfokuskannya (Mematikan Auto Rotate)
+  // ---------- Klik item samping ----------
+  let justSwiped = false;
+
   items.forEach((item) => {
     item.addEventListener("click", () => {
+      if (justSwiped) return; // abaikan klik yang muncul setelah swipe
       killAutoRotate();
-      const currentIndex = items.indexOf(item);
-      
-      if (currentIndex === 1) {
-        rotateRight(); // Jika klik item kanan, geser ke tengah
-      } else if (currentIndex === items.length - 1) {
-        rotateLeft();  // Jika klik item kiri, geser ke tengah
-      }
+      if (item.dataset.pos === "right") rotateRight();
+      else if (item.dataset.pos === "left") rotateLeft();
     });
   });
 
-  // Inisialisasi tampilan pertama kali saat halaman dimuat
+  // ---------- Swipe (HP) ----------
+  const SWIPE_THRESHOLD = 50; // px
+  let startX = null;
+
+  gallery.addEventListener("pointerdown", (e) => {
+    startX = e.clientX;
+    justSwiped = false;
+  });
+
+  gallery.addEventListener("pointerup", (e) => {
+    if (startX === null) return;
+    const deltaX = e.clientX - startX;
+    startX = null;
+
+    if (Math.abs(deltaX) < SWIPE_THRESHOLD) return;
+
+    justSwiped = true;
+    killAutoRotate();
+    if (deltaX < 0) rotateRight(); // geser ke kiri -> foto berikutnya
+    else rotateLeft(); // geser ke kanan -> foto sebelumnya
+  });
+
+  gallery.addEventListener("pointercancel", () => {
+    startX = null;
+  });
+
+  // ---------- Keyboard ----------
+  gallery.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowLeft") {
+      killAutoRotate();
+      rotateLeft();
+    } else if (e.key === "ArrowRight") {
+      killAutoRotate();
+      rotateRight();
+    }
+  });
+
+  // Tampilan awal
   updateGallery();
 });

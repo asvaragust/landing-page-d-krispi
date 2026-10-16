@@ -3,8 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Main -->
     <title>Rak Hotwheels Custom Plywood | Nandra's Garage</title>
     <meta name="description" content="Rak Hotwheels custom dari plywood buatan pengrajin berpengalaman. Mulai Rp10.000 per kotak, ukuran bisa disesuaikan. Pesan mudah lewat WhatsApp." />
+    <link rel="icon" type="image/png" href="assets/logo.png">
 
     <!-- Open Graph (WhatsApp, Facebook, dll.) -->
     <meta property="og:type" content="website" />
@@ -12,17 +15,18 @@
     <meta property="og:title" content="Rak Hotwheels Custom Plywood | Nandra's Garage" />
     <meta property="og:description" content="Pajang koleksi Hotwheels kamu dengan rak custom buatan pengrajin. Mulai Rp10.000 per kotak, ukuran sesuai keinginan." />
     <meta property="og:url" content="https://landing-page-rak-hw.vercel.app/" />
-    <meta property="og:image" content="https://landing-page-rak-hw.vercel.appscreenshot-1.png" />
+    <meta property="og:image" content="https://landing-page-rak-hw.vercel.app/rak3.jpeg" />
     <meta property="og:image:alt" content="Rak Hotwheels plywood buatan Nandra's Garage" />
     <meta property="og:locale" content="id_ID" />
 
-    <link rel="icon" type="image/png" href="assets/logo.png">
     <link rel="stylesheet" href="src/style.css">
 
+    <!-- Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   </head>
+
   <body class="flex flex-col items-center">
 
     <!-- ========== -->
@@ -37,7 +41,7 @@
     flex gap-2">
 
       <!-- = LOGO = -->
-      <img src="assets/logo.png" alt="Logo" class="rounded w-[10vw] min-w-[20px] max-w-[50px]">
+      <img src="assets/logo.png" alt="nandras's garage logo" class="rounded w-[10vw] min-w-[20px] max-w-[50px]">
       <h1 class="text-xs lg:text-2xl font-bold border-b-2 border-[var(--tertiary-shade)] p-2 cursor-pointer">Rak Hotwheels, N. G.</h1>
 
       <!-- = NAVLINKS = -->
@@ -66,9 +70,8 @@
 
       <!-- = MAIN CONTENT = -->
       <div class="w-full h-full lg:py-6">
-        <h2 class="
-        text-3xl w-full sm:leading-12 lg:text-4xl text-[var(--text-dim)] lg:leading-16">Pajang Hotwheels kalian dengan rak kami.</h2>
-
+        <!-- = CONTENT  -->
+        <h2 class="text-3xl w-full sm:leading-12 lg:text-4xl text-[var(--text-dim)] lg:leading-16">Pajang Hotwheels kalian dengan rak kami.</h2>
         <p class="text-sm sm:text-base text-[var(--text-mute)] py-6 my-4">Rak Hotwheels N’s Garage menyediakan Rak Hotwheels yang berkualitas, buatan dari seorang pengrajin yang sudah berpengalaman. Mulai dari harga <span class="font-bold text-lg border-b-2 border-tertiary">10.000/Kotak!</span> dengan menyesuaikan kebutuhan Anda!</p>
 
 
@@ -95,24 +98,34 @@
       <div class="relative w-full max-w-4xl mx-auto group">
         
         <!-- Gallery Viewport -->
-        <div id="produk-gallery" class="relative min-h-[60vh] overflow-hidden select-none w-full">
-          <!-- Item 1 (Left secara default) -->
-          <div class="produk-item w-[300px] absolute transition-all duration-500 ease-in-out cursor-pointer produk-img produk-img-non-main rounded-2xl overflow-hidden">
-            <img loading="lazy" src="assets/rak1.jpeg" alt="rak 1" class="w-full pointer-events-none drop-shadow-md">
-          </div>
-          
-          <!-- Item 2 (Center secara default) -->
-          <div class="produk-item w-[300px] absolute transition-all duration-500 ease-in-out cursor-pointer produk-img rounded-2xl overflow-hidden">
-            <img loading="lazy" src="assets/rak2.jpeg" alt="rak 2" class="w-full pointer-events-none drop-shadow-md">
-          </div>
-          
-          <!-- Item 3 (Right secara default) -->
-          <div class="produk-item w-[300px] absolute transition-all duration-500 ease-in-out cursor-pointer produk-img produk-img-non-main rounded-2xl overflow-hidden">
-            <img loading="lazy" src="assets/rak3.jpeg" alt="rak 3" class="w-full pointer-events-none drop-shadow-md">
+        <div id="produk-gallery" tabindex="0" aria-label="Galeri produk rak Hotwheels"
+            class="relative h-[420px] sm:h-[480px] overflow-hidden select-none w-full">
+
+          <div class="produk-item produk-img cursor-pointer rounded-2xl overflow-hidden">
+            <img src="assets/rak1.jpeg" alt="Rak Hotwheels 1" draggable="false" loading="lazy"
+                class="w-full h-full object-cover pointer-events-none drop-shadow-md">
           </div>
 
-          <!-- Anda bisa tambah <div class="produk-item"> baru di sini, otomatis masuk antrean infinity loop -->
+          <div class="produk-item produk-img cursor-pointer rounded-2xl overflow-hidden">
+            <img src="assets/rak2.jpeg" alt="Rak Hotwheels 2" draggable="false" loading="lazy"
+                class="w-full h-full object-cover pointer-events-none drop-shadow-md">
+          </div>
+
+          <div class="produk-item produk-img cursor-pointer rounded-2xl overflow-hidden">
+            <img src="assets/rak3.jpeg" alt="Rak Hotwheels 3" draggable="false" loading="lazy"
+                class="w-full h-full object-cover pointer-events-none drop-shadow-md">
+          </div>
         </div>
+
+        <!-- Navigation Arrows -->
+        <button id="btn-prev" type="button" aria-label="Foto sebelumnya"
+                class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 p-3 rounded-full shadow-lg z-40 transition-all duration-200">
+          &#10094;
+        </button>
+        <button id="btn-next" type="button" aria-label="Foto berikutnya"
+                class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 p-3 rounded-full shadow-lg z-40 transition-all duration-200">
+          &#10095;
+        </button>
 
         <!-- Navigation Arrows -->
         <button id="btn-prev" class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 p-3 rounded-full shadow-lg z-20 transition-all duration-200">
@@ -123,11 +136,8 @@
         </button>
       </div>
 
-
-
       <!-- =  DETAILS  -->
       <div id="size-n-quality" class="flex justify-center flex-col items-center gap-4 font-[600] text-2xl py-6">
-        <p>2 x 5</p>
         <p>PLYWOOD</p>
       </div>
     </section>
@@ -142,7 +152,7 @@
       <!-- = CARD  -->
       <div class="bg-surface w-[80vw] rounded-4xl overflow-hidden my-8 place-items-center grid grid-cols-1 sm:grid-cols-2 box-shadow">
         <div class="w-full sm:w-[40vw] overflow-hidden">
-          <img class="h-auto w-full object-center object-fit object-cover hover:scale-110 transition-all duration-300" src="assets/rak4.jpeg" alt="rak 4">
+          <img class="h-auto w-full object-center object-fit object-cover hover:scale-110 transition-all duration-300" src="assets/rak4.jpeg" alt="rak hotwheels nandra garage">
         </div>
 
         <div class="p-4 flex flex-col relative">
@@ -188,7 +198,7 @@
         <a href="https://wa.me/6283894212194?text=Halo%2C%20saya%20mau%20pesan%20rak%20Hotwheels" target="_blank" rel="noopener noreferrer">
           <div class="bg-surface flex flex-col items-center justify-center min-w-[280px] min-h-[280px] rounded-2xl box-shadow hover-shadow">
             <div class="w-[200px] overflow-hidden m-4">
-              <img loading="lazy" class="h-auto w-full" src="assets/whatsapp.png" alt="whatsapp">
+              <img loading="lazy" class="h-auto w-full" src="assets/whatsapp.png" alt="nomor whatsapp nandra garage">
             </div>
 
             <p class="text-2xl my-4">0838-9421-2194</p>
@@ -198,7 +208,7 @@
         <a href="https://www.instagram.com/nandra.garage/" target="_blank">
           <div class="bg-surface flex flex-col items-center justify-center min-w-[280px] min-h-[280px] rounded-2xl box-shadow hover-shadow">
             <div class="w-[200px] overflow-hidden m-4">
-              <img loading="lazy" class="h-auto w-full" src="assets/instagram.png" alt="instagram">
+              <img loading="lazy" class="h-auto w-full" src="assets/instagram.png" alt="instagram nandra garage">
             </div>
 
             <p class="text-2xl my-4">nandra.garage</p>
@@ -233,12 +243,12 @@
         <h2 class="text-xl sm:text-2xl md:text-4xl font-[500]">Kontak</h2>
         <div class="flex flex-col xs:flex-row sm:flex-col gap-4 p-8">
           <a href="https://wa.me/6283894212194?text=Halo%2C%20saya%20mau%20pesan%20rak%20Hotwheels" target="_blank" rel="noopener noreferrer" class="flex gap-4 bg-secondary py-2 px-6 rounded-4xl text-text-dim self-start hover-shadow">
-            <img loading="lazy" src="assets/whatsapp.png" alt="whatsapp" class="min-w-[25px] max-w-[30px]">
+            <img loading="lazy" src="assets/whatsapp.png" alt="nomor wa nandra garage" class="min-w-[25px] max-w-[30px]">
             <p class="hidden sm:block">0838-9421-2194</p>
           </a>
 
           <a href="https://www.instagram.com/nandra.garage/" target="_blank" class="flex gap-4 bg-secondary py-2 px-6 rounded-4xl text-text-dim self-start hover-shadow">
-            <img loading="lazy" src="assets/instagram.png" alt="instagram" class="min-w-[25px] max-w-[30px]">
+            <img loading="lazy" src="assets/instagram.png" alt="instagram nandra garage" class="min-w-[25px] max-w-[30px]">
             <p class="hidden sm:block">nandra.garage</p>
           </a>
         </div>

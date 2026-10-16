@@ -67,6 +67,53 @@
 }
 
 @layer components{
+    #produk-gallery{
+    touch-action: pan-y;
+    }
+
+    .produk-item{
+    position: absolute;
+    width: min(60vw, 300px);
+    aspect-ratio: 1 / 1;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    }
+
+    .produk-item[data-pos="center"]{
+    left: 50%; top: 50%;
+    scale: 1; opacity: 1; z-index: 30;
+    }
+
+    .produk-item[data-pos="left"]{
+    left: 22%; top: 58%;
+    scale: 0.75; opacity: 0.6; z-index: 10;
+    }
+
+    .produk-item[data-pos="right"]{
+    left: 78%; top: 58%;
+    scale: 0.75; opacity: 0.6; z-index: 10;
+    }
+
+    .produk-item[data-pos="hidden-left"]{
+    left: 8%; top: 65%;
+    scale: 0.5; opacity: 0; z-index: 0;
+    pointer-events: none;
+    }
+
+    .produk-item[data-pos="hidden-right"]{
+    left: 92%; top: 65%;
+    scale: 0.5; opacity: 0; z-index: 0;
+    pointer-events: none;
+    }
+
+    @media (min-width: 40rem){
+    .produk-item[data-pos="left"]:hover,
+    .produk-item[data-pos="right"]:hover{
+        opacity: 1;
+    }
+    }
+
     .cta-hubungi-penjual{
         @apply 
         text-center
@@ -112,7 +159,7 @@
         rounded-xl
         border-tertiary
 
-        sm:hover:z-2
+        sm:hover:z-[9999999999]
         sm:hover:scale-110
         sm:hover:shadow-secondary
         sm:hover:border-tertiary
