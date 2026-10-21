@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!gallery) return;
 
   // ---------- Daftar foto ----------
-  const FOTO_FOLDER = "assets/"; // ganti sesuai folder fotomu, atau "" kalau sejajar dengan index.html
+  const FOTO_FOLDER = ""; // ganti sesuai folder fotomu, atau "" kalau sejajar dengan index.html
 
   const FOTO_RAK = [
     // rak_hotwheels_1 sampai 6 -> .webp
