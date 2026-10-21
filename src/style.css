@@ -140,7 +140,7 @@
         @apply outline-2
         outline-[var(--tertiary)]
         rounded
-        p-6
+        p-4
         text-[var(--text-dim)]
         hover:bg-[var(--tertiary-shade)]/50
         hover:shadow-[0px_8px_24px_var(--tertiary)]
@@ -148,6 +148,14 @@
         focus:outline-offset-4
         transition-all
         duration-300
+        text-xs
+        sm:text-lg
+
+        min-w-[120px]
+        flex
+        justify-center
+        items-center
+        text-center
           
     }
 

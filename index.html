@@ -65,25 +65,29 @@
     <!-- HOME -->
     <!-- ========== -->
     <section id="home" class="
-    h-[100vh] bg-[linear-gradient(to_bottom,rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url('/assets/hero-bg.jpeg')] bg-cover bg-center bg-no-repeat
-    grid grid-cols-1 sm:grid-cols-2 py-8 p-4 lg:p-16 gap-4 md:gap-8 overflow-hidden">
+    min-h-[100vh] bg-[linear-gradient(to_bottom,rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url('/assets/hero-bg.jpeg')] bg-cover bg-center bg-no-repeat
+    grid grid-cols-1 grid-rows-[0.7fr_40px_100px] sm:grid-rows-[1fr_120px_80px] sm:grid-cols-2 p-4 sm:p-8 md:p-16 sm:gap-4 overflow-hidden">
 
       <!-- = MAIN CONTENT = -->
-      <div class="w-full h-full lg:py-6">
-        <!-- = CONTENT  -->
-        <h2 class="text-3xl w-full sm:leading-12 lg:text-4xl text-[var(--text-dim)] lg:leading-16">Pajang Hotwheels kalian dengan rak kami.</h2>
-        <p class="text-sm sm:text-base text-[var(--text-mute)] py-6 my-4">Rak Hotwheels N’s Garage menyediakan Rak Hotwheels yang berkualitas, buatan dari seorang pengrajin yang sudah berpengalaman. Mulai dari harga <span class="font-bold text-lg border-b-2 border-tertiary">10.000/Kotak!</span> dengan menyesuaikan kebutuhan Anda!</p>
+      
+      <!-- = CONTENT  -->
+      <div>
+        <h2 class="font-bold text-2xl w-full sm:leading-12 md:text-3xl lg:text-5xl text-[var(--text-dim)] lg:leading-16 mb-4">Pajang <span class="text-primary border-b-2 sm:border-b-4 border-tertiary">Hotwheels</span> kalian dengan <span class="text-primary border-b-2 sm:border-b-4 border-tertiary">Rak</span>  kami.</h2>
+        <p class="text-sm sm:text-base text-[var(--text-mute)] mb-4">Rak Hotwheels N’s Garage menyediakan Rak Hotwheels yang berkualitas, buatan dari seorang pengrajin yang sudah berpengalaman. Mulai dari harga <span class="font-bold text-lg border-b-2 border-tertiary">10.000/Kotak!</span> dengan menyesuaikan kebutuhan Anda!</p>
+      </div>
 
+      <div id="social-proof" class="bg-primary flex  justify-center items-center inline text-xs text-text rounded mb-4 py-4 sm:h-[50px] sm:text-xl sm:w-full sm:row-start-3 sm:row-end-4 sm:col-start-1 sm:col-end-3">
+        <p class="text-center h-full flex items-center justify-center">Telah membuat <span class="text-secondary font-bold text-xl px-2">10+</span> rak hotwheels</p>
+      </div>
 
-        <!-- = CTA = -->
-        <div class="flex gap-12 py-16">
-          <a href="https://wa.me/6283894212194?text=Halo%2C%20saya%20mau%20pesan%20rak%20Hotwheels" target="_blank" rel="noopener noreferrer" class="cta-hubungi-penjual flex items-center justify-center">
-            HUBUNGI PENJUAL
-          </a>
-          <a href="#produk" class="cta-lihat-produk">
-            LIHAT PRODUK
-          </a>
-        </div>
+      <!-- = CTA = -->
+      <div class="flex gap-12 py-7 sm:not-even:row-start-2 sm:row-end-3">
+        <a href="https://wa.me/6283894212194?text=Halo%2C%20saya%20mau%20pesan%20rak%20Hotwheels" target="_blank" rel="noopener noreferrer" class="cta-hubungi-penjual flex items-center justify-center">
+          HUBUNGI PENJUAL
+        </a>
+        <a href="#produk" class="cta-lihat-produk">
+          LIHAT PRODUK
+        </a>
       </div>
     </section>
 
