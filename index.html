@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="id">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -102,23 +102,9 @@
       <div class="relative w-full max-w-4xl mx-auto group">
         
         <!-- Gallery Viewport -->
+        <!-- Item foto (.produk-item) dibuat otomatis oleh src/main.js dari daftar FOTO_RAK -->
         <div id="produk-gallery" tabindex="0" aria-label="Galeri produk rak Hotwheels"
             class="relative h-[420px] sm:h-[480px] overflow-hidden select-none w-full">
-
-          <div class="produk-item produk-img cursor-pointer rounded-2xl overflow-hidden">
-            <img src="assets/rak1.jpeg" alt="Rak Hotwheels 1" draggable="false" loading="lazy"
-                class="w-full h-full object-cover pointer-events-none drop-shadow-md">
-          </div>
-
-          <div class="produk-item produk-img cursor-pointer rounded-2xl overflow-hidden">
-            <img src="assets/rak2.jpeg" alt="Rak Hotwheels 2" draggable="false" loading="lazy"
-                class="w-full h-full object-cover pointer-events-none drop-shadow-md">
-          </div>
-
-          <div class="produk-item produk-img cursor-pointer rounded-2xl overflow-hidden">
-            <img src="assets/rak3.jpeg" alt="Rak Hotwheels 3" draggable="false" loading="lazy"
-                class="w-full h-full object-cover pointer-events-none drop-shadow-md">
-          </div>
         </div>
 
         <!-- Navigation Arrows -->
@@ -129,14 +115,6 @@
         <button id="btn-next" type="button" aria-label="Foto berikutnya"
                 class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 p-3 rounded-full shadow-lg z-40 transition-all duration-200">
           &#10095;
-        </button>
-
-        <!-- Navigation Arrows -->
-        <button id="btn-prev" class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 p-3 rounded-full shadow-lg z-20 transition-all duration-200">
-          &#10094; <!-- Panah Kiri -->
-        </button>
-        <button id="btn-next" class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 p-3 rounded-full shadow-lg z-20 transition-all duration-200">
-          &#10095; <!-- Panah Kanan -->
         </button>
       </div>
 

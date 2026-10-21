@@ -62,7 +62,7 @@
 @layer base{
     section{
         @apply
-        w-screen
+        w-full
     }
 }
 
@@ -108,10 +108,22 @@
     }
 
     @media (min-width: 40rem){
+    .produk-item[data-pos="center"]:hover{
+        scale: 1.05;
+    }
+
     .produk-item[data-pos="left"]:hover,
     .produk-item[data-pos="right"]:hover{
         opacity: 1;
+        scale: 0.8;
+        z-index: 20;
     }
+    }
+
+    /* Tangan (pointer) hanya muncul di foto samping, karena cuma itu yang bisa diklik */
+    .produk-item[data-pos="left"],
+    .produk-item[data-pos="right"]{
+        cursor: pointer;
     }
 
     .cta-hubungi-penjual{
@@ -167,8 +179,6 @@
         rounded-xl
         border-tertiary
 
-        sm:hover:z-[9999999999]
-        sm:hover:scale-110
         sm:hover:shadow-secondary
         sm:hover:border-tertiary
         sm:hover:border-1
@@ -213,5 +223,3 @@
         duration-300
     }
 }
-
-
